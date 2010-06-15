@@ -17,7 +17,9 @@ class Array
       if columns.any?
         unless options[:headers] == false
           output << "<Row>"
-          columns.each { |column| output << "<Cell><Data ss:Type=\"String\">#{klass.human_attribute_name(column)}</Data></Cell>" }
+          columns.each do |column| 
+            output << "<Cell><Data ss:Type=\"String\">#{column.to_s.humanize}</Data></Cell>"
+          end
           output << "</Row>"
         end    
 
